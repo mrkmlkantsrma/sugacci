@@ -204,10 +204,6 @@
                                             <div class="cart_button">
                                                 <a href="<?= base_url('cart'); ?>"><i class="fa fa-shopping-cart"></i> View cart</a>
                                             </div>
-                                            <div class="cart_button">
-                                                <a class="active" href="<?= base_url('checkout'); ?>"><i class="fa fa-sign-in"></i>
-                                                    Checkout</a>
-                                            </div>
                                         </div>
                                         <?php } else{?>
                                             <div class="col-lg-12 col-md-12">

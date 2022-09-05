@@ -30,9 +30,6 @@ We provide the best alternative to deodorants and body mists which is 10 times m
 Perfumes, deodorants, body mists and fragrances are nowadays bifurcated as Men & Women but at Sugacci; we create unisex fragrances which can used both by men and women. This definitely ads economic value to the perfumes we make.
 
 The current portfolio of Sugacci includes 10 exciting variants in the Eau de parfum concentration (EDP for Men and Women) and are crafted to last longer with unique combination of perfume notes giving you an excellent fragrance experience.</p>
-                            <div class="about_signature">
-                                <img src="<?php base_url(); ?>assets/img/about/about-us-signature.png" alt="">
-                            </div>
                         </figcaption>
                     </figure>
                 </div>
@@ -42,45 +39,50 @@ The current portfolio of Sugacci includes 10 exciting variants in the Eau de par
     <!--about section end-->
 
     <!--chose us area start-->
-    <div class="choseus_area" data-bgimg="<?php base_url(); ?>assets/img/about/about-us-policy-bg.jpg">
+    <div class="choseus_area" data-bgimg="<?php base_url(); ?>assets/img/about/sugacci-about.webp">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-4">
-                    <div class="single_chose">
-                        <div class="chose_icone">
-                            <img src="<?php base_url(); ?>assets/img/about/About_icon1.png" alt="">
-                        </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="single_chose1">
                         <div class="chose_content">
-                            <h3>Creative Design</h3>
-                            <p>Erat metus sodales eget dolor consectetuer, porta ut purus at et alias, nulla ornare
-                                velit amet</p>
-
+                        <article>
+                            <h3>gingerbread</h3>
+                            <h4>step one</h4>
+                            <p>Cake muffin donut chocolate cake jelly sesame snaps wafer tart pie sweet roll muffin chupa chups.</p>
+                            </article>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="single_chose">
-                        <div class="chose_icone">
-                            <img src="<?php base_url(); ?>assets/img/about/About_icon2.png" alt="">
-                        </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="single_chose2">
                         <div class="chose_content">
-                            <h3>100% Money Back Guarantee</h3>
-                            <p>Erat metus sodales eget dolor consectetuer, porta ut purus at et alias, nulla ornare
-                                velit amet</p>
-
+                        <article>
+                            <h3>Bread</h3>
+                            <h4>step one</h4>
+                            <p>Cake muffin donut chocolate cake jelly sesame snaps wafer tart pie sweet roll muffin chupa chups.</p>
+                            </article>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="single_chose">
-                        <div class="chose_icone">
-                            <img src="<?php base_url(); ?>assets/img/about/About_icon3.png" alt="">
-                        </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="single_chose3">
                         <div class="chose_content">
-                            <h3>Online Support 24/7</h3>
-                            <p>Erat metus sodales eget dolor consectetuer, porta ut purus at et alias, nulla ornare
-                                velit amet</p>
-
+                        <article>
+                            <h3>cream</h3>
+                            <h4>step Three</h4>
+                            <p>Cake muffin donut chocolate cake jelly sesame snaps wafer tart pie sweet roll muffin chupa chups.</p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="single_chose4">
+                        <div class="chose_content">
+                        <article>
+                            <h3>cake</h3>
+                            <h4>step Four</h4>
+                            <p>Cake muffin donut chocolate cake jelly sesame snaps wafer tart pie sweet roll muffin chupa chups.</p>
+                            </article>
                         </div>
                     </div>
                 </div>
@@ -91,59 +93,32 @@ The current portfolio of Sugacci includes 10 exciting variants in the Eau de par
     <!--chose us area end-->
 
     <!--services img area-->
-    <div class="about_gallery_section">
+    <div class="about_newsletter_section mb-60">
         <div class="container">
-            <div class="about_gallery_container">
+            <div class="about_newsletter_container">
                 <div class="row">
-                    <div class="col-lg-4 col-md-4">
-                        <article class="single_gallery_section">
-                            <figure>
-                                <div class="gallery_thumb">
-                                    <img src="<?php base_url(); ?>assets/img/about/about2.jpg" alt="">
-                                </div>
-                                <figcaption class="about_gallery_content">
-                                    <h3>What do we do?</h3>
-                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                                        doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-                                        veritatis et quasi architecto</p>
-                                </figcaption>
-                            </figure>
-                        </article>
+                    <div class="col-lg-2 col-md-2">
+                       
                     </div>
-                    <div class="col-lg-4 col-md-4">
-                        <article class="single_gallery_section">
-                            <figure>
-                                <div class="gallery_thumb">
-                                    <img src="<?php base_url(); ?>assets/img/about/about3.jpg" alt="">
+                    <div class="col-lg-8 col-md-8 text-center">
+                        <form id="subscribeForm" method="post">
+                                <h2 class="mb-20 ">SUBSCRIBE TO OUR NEWSLETTER</h2>	
+                                <h4>Join our subscribers list to get the latest news, updates and special offers delivered directly in your inbox.</p>
+                                <div class="input-group newsletterAboutInputBox">
+                                    <input type="email" id="subscribeEmail" name="subscribeEmail" class="form-control" placeholder="Enter your email" required>
+                                    <div class="input-group-append">
+                                    <input type="button" class="btn btn-primary" value="Subscribe"  id="subscribeBtn">
+                                    </div>
                                 </div>
-                                <figcaption class="about_gallery_content">
-                                    <h3>Our Mission</h3>
-                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                                        doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-                                        veritatis et quasi architecto</p>
-                                </figcaption>
-                            </figure>
-                        </article>
-                    </div>
-                    <div class="col-lg-4 col-md-4">
-                        <article class="single_gallery_section">
-                            <figure>
-                                <div class="gallery_thumb">
-                                    <img src="<?php base_url(); ?>assets/img/about/about4.jpg" alt="">
-                                </div>
-                                <figcaption class="about_gallery_content">
-                                    <h3>History Of Us</h3>
-                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                                        doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-                                        veritatis et quasi architecto</p>
-                                </figcaption>
-                            </figure>
-                        </article>
+                        </form>			
+                        <div class="subscriptionFormNotices form-notices"></div>
+                     </div>
+                    <div class="col-lg-2 col-md-2">
+                       
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!--services img end-->
-
     <!--brand area end-->

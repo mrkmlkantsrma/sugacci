@@ -87,7 +87,7 @@
     <?php } ?>
 
     <!-- my account start  -->
-    <?php if($this->session->userdata('logged_in') && $this->session->userdata('logged_in_email')){ ?>
+    <?php if($this->session->userdata('logged_in') || $this->session->userdata('logged_in_email')){ ?>
     <section class="main_content_area">
         <div class="container">
             <div class="account_dashboard">
@@ -96,7 +96,7 @@
                         <!-- Nav tabs -->
                         <div class="dashboard_tab_button">
                             <ul role="tablist" class="nav flex-column dashboard-list">
-                                <?php if($this->session->userdata('logged_in') && $this->session->userdata('logged_in_email')){ ?>
+                                <?php if($this->session->userdata('logged_in') || $this->session->userdata('logged_in_email')){ ?>
                                  <li><a href="#account-details" data-bs-toggle="tab" class="nav-link active">Account details</a></li>
                                  <?php } ?>
                                 <!-- <li><a href="#dashboard" data-bs-toggle="tab" class="nav-link active">Dashboard</a></li> -->
@@ -144,6 +144,18 @@
                                         orders</a>, manage your <a href="#">shipping and billing addresses</a> and <a
                                         href="#">Edit your password and account details.</a></p>
                             </div> -->
+                        <?php 
+                            $username = $this->session->userdata('logged_in');
+                            $email = $this->session->userdata('logged_in_email');
+                            $data = array();
+                            $data['username'] =  $this->session->userdata('logged_in');
+                            $data['email'] =  $this->session->userdata('logged_in_email');
+                            $CI =& get_instance();
+                            $md = $CI->load->model('Home_Model');
+                            $userDetail = $CI->Home_Model->GetUserDetailsByemailorUsername($data);   
+                            $userData = $CI->Home_Model->getSingleCustomerDetails($userDetail['user']); 
+                            $orderData = $CI->Home_Model->getCustomerOrderDetails($userDetail['user']); 
+                            ?>
                             <div class="tab-pane fade" id="orders">
                                 <h3>Orders</h3>
                                 <div class="table-responsive">
@@ -158,20 +170,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php foreach($orderData as $orders){?>
                                             <tr>
-                                                <td>1</td>
-                                                <td>May 10, 2018</td>
-                                                <td><span class="success">Completed</span></td>
-                                                <td>$25.00 for 1 item </td>
-                                                <td><a href="cart.html" class="view">view</a></td>
+                                                <td><?= $orders['order_id']; ?></td>
+                                                <td><?= $orders['date']; ?></td>
+                                                <td><?= $orders['payment_type']; ?></td>
+                                                <td><?= $orders['amount']; ?></td>
+                                                <td><a href="#" class="view">view</a></td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>May 10, 2018</td>
-                                                <td>Processing</td>
-                                                <td>$17.00 for 1 item </td>
-                                                <td><a href="cart.html" class="view">view</a></td>
-                                            </tr>
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -179,16 +186,20 @@
                             <div class="tab-pane" id="address">
                                 <p>The following addresses will be used on the checkout page by default.</p>
                                 <h4 class="billing-address">Billing address</h4>
-                                <a href="#" class="view">Edit</a>
-                                <p><strong>Bobby Jackson</strong></p>
+                                <!-- <a href="#" class="view">Edit</a> -->
+                                <p><strong><?= $userData['first_name']; ?> <?= $userData['last_name']; ?></strong></p>
                                 <address>
-                                    <span><strong>City:</strong> Seattle</span>,
+                                    <span><strong>Address:</strong> <?= $userData['billing_address']; ?></span>,
                                     <br>
-                                    <span><strong>State:</strong> Washington(WA)</span>,
+                                    <span><strong>City:</strong> <?= $userData['billing_city']; ?></span>,
                                     <br>
-                                    <span><strong>ZIP:</strong> 98101</span>,
+                                    <span><strong>State:</strong> <?= $userData['billing_state']; ?></span>,
                                     <br>
-                                    <span><strong>Country:</strong> USA</span>
+                                    <span><strong>ZIP:</strong> <?= $userData['billing_post_code']; ?></span>,
+                                    <br>
+                                    <span><strong>Email:</strong> <?= $userData['email']; ?></span>
+                                    <br>
+                                    <span><strong>Phone:</strong> <?= $userData['billing_phone']; ?></span>
                                 </address>
                             </div>
                         </div>

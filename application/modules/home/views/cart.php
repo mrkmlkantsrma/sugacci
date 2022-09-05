@@ -86,9 +86,16 @@
                                     <p>Total</p>
                                     <p class="cart_amount"><?php echo '₹'.number_format($this->cart->total()).''; ?></p>
                                 </div>
+                                <?php if(!$this->session->userdata('logged_in') ) {?>
+                                <div class="checkout_btn">
+                                    <a href="<?= base_url('usercreate'); ?>">Proceed to Checkout</a>
+                                </div>
+                                <?php }else{ ?>
                                 <div class="checkout_btn">
                                     <a href="<?= base_url('checkout'); ?>">Proceed to Checkout</a>
                                 </div>
+                                <?php } ?>
+
                             </div>
                         </div>
                     </div>

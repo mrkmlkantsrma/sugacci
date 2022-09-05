@@ -104,6 +104,12 @@ $route['(\w{2})/cart'] = "home/ShoppingCartPage";
 $route['shop'] = "home/HomeController/Shop";
 $route['(\w{2})/shop'] = "home/HomeController/Shop";
 
+// Shop page 
+$route['usercreate'] = "home/HomeController/UserCreate";
+$route['(\w{2})/usercreate'] = "home/HomeController/UserCreate";
+
+
+
 // Blog page 
 $route['blog'] = "home/HomeController/Blog";
 $route['(\w{2})/blog'] = "home/HomeController/Blog";

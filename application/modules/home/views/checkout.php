@@ -74,51 +74,62 @@
             </div> -->
 
 
-
-
+            
             <div class="checkout_form">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                            <h3>Billing Details</h3>
-                            <div class="row">
-
+                        <h3>Billing Details</h3>
+                        <div class="row">
+                        <?php if($this->session->userdata('logged_in') || $this->session->userdata('logged_in_email')){ 
+                           $username = $this->session->userdata('logged_in');
+                           $email = $this->session->userdata('logged_in_email');
+                           $data = array();
+                           $data['username'] =  $this->session->userdata('logged_in');
+                           $data['email'] =  $this->session->userdata('logged_in_email');
+                           $CI =& get_instance();
+                           $md = $CI->load->model('Home_Model');
+                           $userDetail = $CI->Home_Model->GetUserDetailsByemailorUsername($data);   
+                           $userData = $CI->Home_Model->getSingleCustomerDetails($userDetail['user']); ?>
+                           <?php if($userData){ ?>
+                            <!-- GetUserDetails -->
+                            
+                            <input type="hidden" name="user_id" id="user_id" value="<?= $userDetail['user']; ?>">
                                 <div class="col-lg-6 mb-20">
                                     <label>First Name <span>*</span></label>
-                                    <input type="text"  name="first_name" data-constraints="@Required" placeholder="First Name">
+                                    <input type="text" name="first_name" value="<?= $userData['first_name']; ?>" data-constraints="@Required" placeholder="First Name">
                                 </div>
                                 <div class="col-lg-6 mb-20">
                                     <label>Last Name <span>*</span></label>
-                                    <input type="text" name="last_name" data-constraints="@Required" placeholder="Last Name">
+                                    <input type="text" name="last_name" value="<?= $userData['last_name']; ?>" data-constraints="@Required" placeholder="Last Name">
                                 </div>
                                 <div class="col-lg-6 mb-20">
                                     <label>Phone<span>*</span></label>
-                                    <input type="text" name="billing_phone" data-constraints="@Numeric" placeholder="Phone">
+                                    <input type="text" name="billing_phone" value="<?= $userData['billing_phone']; ?>" data-constraints="@Numeric" placeholder="Phone">
 
                                 </div>
                                 <div class="col-lg-6 mb-20">
                                     <label> Email Address <span>*</span></label>
-                                    <input type="text" name="email" data-constraints="@Email @Required" placeholder="E-Mail">
+                                    <input type="text" name="email" value="<?= $userData['email']; ?>" data-constraints="@Email @Required" placeholder="E-Mail">
 
                                 </div>
 
                                 <div class="col-12 mb-20">
                                     <label>Street address <span>*</span></label>
-                                    <input placeholder="House number and street name" type="text" name="billing_address" data-constraints="@Required">
+                                    <input placeholder="House number and street name"  value="<?= $userData['billing_address']; ?>" type="text" name="billing_address" data-constraints="@Required">
                                 </div>
                                
                                 <div class="col-12 mb-20">
                                     <label>Town / City <span>*</span></label>
-                                    <input type="text" name="billing_city" data-constraints="@Required" placeholder="City/Town">
+                                    <input type="text" name="billing_city" value="<?= $userData['billing_city']; ?>" data-constraints="@Required" placeholder="City/Town">
                                 </div>
                                 <div class="col-12 mb-20">
                                     <label>State / County <span>*</span></label>
-                                    <input type="text" name="billing_state" data-constraints="@Required" placeholder="State">
+                                    <input type="text" name="billing_state" value="<?= $userData['billing_state']; ?>" data-constraints="@Required" placeholder="State">
                                 </div>
                                 <div class="col-12 mb-20">
                                     <label>Post Code <span>*</span></label>
-                                    <input type="text"name="billing_post_code" data-constraints="@Required" placeholder="PostCode">
+                                    <input type="text"name="billing_post_code" value="<?= $userData['billing_post_code']; ?>" data-constraints="@Required" placeholder="PostCode">
                                 </div>
-                               
                                 <div class="col-12 mb-20">
                                     <!-- <input id="account" type="checkbox" data-bs-target="createp_account" />
                                     <label for="account" data-bs-toggle="collapse" data-bs-target="#collapseOne"
@@ -131,6 +142,7 @@
                                         </div>
                                     </div> -->
                                 </div>
+
                                 <div class="col-12 mb-20">
                                     <input id="address" type="checkbox" data-bs-target="createp_account" />
                                     <label class="righ_0" for="address" data-bs-toggle="collapse"
@@ -173,8 +185,112 @@
                                             placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
                                     </div>
                                 </div> -->
+                                <?php }else{ ?>
+                                    <input type="hidden" name="user_id" id="user_id" value="<?= $userDetail['user']; ?>">
+                                    <div class="col-lg-6 mb-20">
+                                    <label>First Name <span>*</span></label>
+                                    <input type="text"  name="first_name" data-constraints="@Required" placeholder="First Name">
+                                </div>
+                                <div class="col-lg-6 mb-20">
+                                    <label>Last Name <span>*</span></label>
+                                    <input type="text" name="last_name" data-constraints="@Required" placeholder="Last Name">
+                                </div>
+                                <div class="col-lg-6 mb-20">
+                                    <label>Phone<span>*</span></label>
+                                    <input type="text" name="billing_phone" data-constraints="@Numeric" placeholder="Phone">
+
+                                </div>
+                                <div class="col-lg-6 mb-20">
+                                    <label> Email Address <span>*</span></label>
+                                    <input type="text" name="email" data-constraints="@Email @Required" placeholder="E-Mail">
+
+                                </div>
+
+                                <div class="col-12 mb-20">
+                                    <label>Street address <span>*</span></label>
+                                    <input placeholder="House number and street name" type="text" name="billing_address" data-constraints="@Required">
+                                </div>
+                               
+                                <div class="col-12 mb-20">
+                                    <label>Town / City <span>*</span></label>
+                                    <input type="text" name="billing_city" data-constraints="@Required" placeholder="City/Town">
+                                </div>
+                                <div class="col-12 mb-20">
+                                    <label>State / County <span>*</span></label>
+                                    <input type="text" name="billing_state" data-constraints="@Required" placeholder="State">
+                                </div>
+                                <div class="col-12 mb-20">
+                                    <label>Post Code <span>*</span></label>
+                                    <input type="text"name="billing_post_code" data-constraints="@Required" placeholder="PostCode">
+                                </div>
+                                <div class="col-12 mb-20">
+                                    <!-- <input id="account" type="checkbox" data-bs-target="createp_account" />
+                                    <label for="account" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                        aria-controls="collapseOne">Create an account?</label> -->
+
+                                    <!-- <div id="collapseOne" class="collapse one" data-parent="#accordion">
+                                        <div class="card-body1">
+                                            <label> Account password <span>*</span></label>
+                                            <input placeholder="password" type="password">
+                                        </div>
+                                    </div> -->
+                                </div>
+
+                                <div class="col-12 mb-20">
+                                    <input id="address" type="checkbox" data-bs-target="createp_account" />
+                                    <label class="righ_0" for="address" data-bs-toggle="collapse"
+                                        data-bs-target="#collapsetwo" aria-controls="collapseOne">Ship to a different
+                                        address?</label>
+
+                                    <div id="collapsetwo" class="collapse one" data-parent="#accordion">
+                                        <div class="row">
+                                            <div class="col-lg-6 mb-20">
+                                                <label>Phone<span>*</span></label>
+                                                <input type="text" name="shipping_phone" data-constraints="@Numeric" placeholder="Phone">
+
+                                            </div>
+
+                                            <div class="col-12 mb-20">
+                                                <label>Street address <span>*</span></label>
+                                                <input placeholder="House number and street name" type="text" name="shipping_address" data-constraints="@Required">
+                                            </div>
+                                           
+                                            <div class="col-12 mb-20">
+                                                <label>Town / City <span>*</span></label>
+                                                <input type="text" name="shipping_city" data-constraints="@Required" placeholder="City/Town">
+                                            </div>
+                                            <div class="col-12 mb-20">
+                                                <label>State / County <span>*</span></label>
+                                                <input type="text" name="shipping_state" data-constraints="@Required" placeholder="State">
+                                            </div>
+                                            
+                                            <div class="col-12 mb-20">
+                                                <label>Post Code <span>*</span></label>
+                                                <input type="text"name="shipping_post_code" data-constraints="@Required" placeholder="PostCode">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-12">
+                                    <div class="order-notes">
+                                        <label for="order_note">Order Notes</label>
+                                        <textarea id="order_note"
+                                            placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
+                                    </div>
+                                </div> -->
+                               <?php } ?>
+                        <?php }else{ ?>
+                                <div class="col-lg-6 mb-20 mt-55">
+                                <?php if(!$this->session->userdata('logged_in') ) {?>
+                                <div class="checkout_btn">
+                                    <a href="<?= base_url('usercreate'); ?>">Login / Register</a>
+                                </div>
+                                <?php } ?>
+                                </div>
+
+                    <?php } ?>
+                               
                             </div>
-                     
                     </div>
                     <div class="col-lg-6 col-md-6">
                     
