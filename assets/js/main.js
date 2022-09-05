@@ -428,6 +428,7 @@
         e.preventDefault();
         let email = $("#loginEmailcheck").val();
         let password = $("#loginPassword").val();
+        var urlName = $("#urlName").val();
         var href = $(this).attr('href');
         var url = baseurl+'home/HomeController/LoginUser';
         $.ajax({
@@ -443,9 +444,14 @@
               if(res.success == 'true'){
                 let message = res.message;
                 $("#showLoginMessage").html(message);
-                setTimeout(() => {
-                    location.reload();
-                }, 2500);
+                if(urlName == 'usercreate'){
+                    let backUrl = baseurl+'home/HomeController/Checkout';
+                    window.location = backUrl;  
+                }else{
+                    setTimeout(() => {
+                        location.reload();
+                    }, 2500);
+                }
               }
             }
         });
@@ -455,6 +461,7 @@
         e.preventDefault();
         let email = $("#emailcheck").val();
         let password = $("#RegisterPassword").val();
+        var urlName = $("#urlName").val();
         var href = $(this).attr('href');
         var url = baseurl+'home/HomeController/RegisterUser';
         $.ajax({
@@ -470,9 +477,14 @@
                 if(res.success == 'true'){
                     let message = res.message;
                     $("#showRegMessage").html(message);
-                    setTimeout(() => {
-                        location.reload();
-                    }, 1000);
+                    if(urlName == 'usercreate'){
+                        let backUrl = baseurl+'home/HomeController/Checkout';
+                        window.location = backUrl;
+                    }else{
+                        setTimeout(() => {
+                            location.reload();
+                        }, 1000);
+                    }
                 }
             }
         });

@@ -16,15 +16,15 @@
 		<div class="unlimited_services">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 col-md-12">
+                <div class="col-lg-5 col-md-12">
                     <div class="services_section_thumb">
-                        <img src="<?php base_url(); ?>assets/img/service/services4.jpg" alt="">
+                        <img src="<?php base_url(); ?>assets/img/about/whysugacci.webp" alt="">
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12">
+                <div class="col-lg-7 col-md-12">
                     <div class="unlimited_services_content">
-                        <h1>Sugacci is a perfumes brand which aims on providing high quality and long lasting perfumes for men and women at affordable prices.</h1>
-                        <p>We provide the best alternative to deodorants and body mists which is 10 times more long lasting because all our unisex perfumes are made with Eau de Parfum concentration which makes it last longer.
+                        <h1>Why Sugacci Perfumes?</h1>
+                        <p><strong>Sugacci</strong> is a perfumes brand which aims on providing high quality and long lasting perfumes for men and women at affordable prices. We provide the best alternative to deodorants and body mists which is 10 times more long lasting because all our unisex perfumes are made with Eau de Parfum concentration which makes it last longer.
 
 Perfumes, deodorants, body mists and fragrances are nowadays bifurcated as Men & Women but at Sugacci; we create unisex fragrances which can used both by men and women. This definitely ads economic value to the perfumes we make.
 
@@ -346,37 +346,3 @@ The current portfolio of Sugacci includes 10 exciting variants in the Eau De Par
     </div>
     <!--Accordion area end-->
     <!--faq area end-->
-
-    <!--brand area start-->
-    <div class="brand_area brand__three">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="brand_container owl-carousel">
-                        <div class="single_brand">
-                            <a href="#"><img src="<?php base_url(); ?>assets/img/brand/brand1.png" alt=""></a>
-                        </div>
-                        <div class="single_brand">
-                            <a href="#"><img src="<?php base_url(); ?>assets/img/brand/brand2.png" alt=""></a>
-                        </div>
-                        <div class="single_brand">
-                            <a href="#"><img src="<?php base_url(); ?>assets/img/brand/brand3.png" alt=""></a>
-                        </div>
-                        <div class="single_brand">
-                            <a href="#"><img src="<?php base_url(); ?>assets/img/brand/brand4.png" alt=""></a>
-                        </div>
-                        <div class="single_brand">
-                            <a href="#"><img src="<?php base_url(); ?>assets/img/brand/brand5.png" alt=""></a>
-                        </div>
-                        <div class="single_brand">
-                            <a href="#"><img src="<?php base_url(); ?>assets/img/brand/brand6.png" alt=""></a>
-                        </div>
-                        <div class="single_brand">
-                            <a href="#"><img src="<?php base_url(); ?>assets/img/brand/brand2.png" alt=""></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--brand area end-->

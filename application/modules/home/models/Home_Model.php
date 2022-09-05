@@ -92,6 +92,36 @@ class Home_Model extends CI_Model{
         $query = $this->db->get('customers');
         return $query->row_array();
     }
+    public function GetUserDetailsByemailorUsername($data)
+    {
+        $this->db->select('*');
+        $this->db->from('customers');
+        $this->db->group_start();
+        $this->db->where('username', $data['username'])->or_where('email', $data['email']);
+        $this->db->group_end();
+        $this->db->limit(1);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
+    public function getSingleCustomerDetails($user_id)
+    {
+        $this->db->select('*');
+        $this->db->where('user_id', $user_id);
+        $this->db->limit(1);
+        $this->db->order_by('id','desc');
+        $query = $this->db->get('orders');
+        return $query->row_array();
+    }
+    public function getCustomerOrderDetails($user_id)
+    {
+        $this->db->select('*');
+        $this->db->where('user_id', $user_id);
+        $this->db->order_by('id','asc');
+        $query = $this->db->get('orders');
+        return $query->result_array();
+    }
+
     public function FillDetailUser($data)
     {   
         $this->db->where('email', $data['email']);
@@ -290,6 +320,7 @@ class Home_Model extends CI_Model{
             'shipping_state'    => $post['shipping_state'],
             'shipping_post_code'=> $post['shipping_post_code'],
             'products'          => $post['products'],
+            'amount'            => $post['amount'],
             'date'              => $post['date'],
             'payment_type'      => $post['payment_type'],
             'payment_status'    => $post['payment_status'],

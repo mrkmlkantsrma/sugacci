@@ -104,6 +104,11 @@ class HomeController extends MX_Controller {
         $this->cart->insert($data);
 		redirect('cart');
   	}
+
+	public function UserCreate(){
+
+		$this->load->template('user-create');
+	}
    	public function Checkout(){
 		$data = array();
 		$data['cartItems'] = $this->cart->contents();
@@ -585,10 +590,7 @@ class HomeController extends MX_Controller {
 					$_POST['amount'] = $this->cart->total();
 					$_POST['id'] = $cartValues;
 					
-					$_SESSION['checkoutForm_Data'] = $_POST; 
-
-					$_POST['user_id'] = isset($_SESSION['logged_user']) ? $_SESSION['logged_user'] : 0;
-					$_POST['user_id'] = 0;
+					$_SESSION['checkoutForm_Data'] = $_POST;
 
 					$orderId = $this->Home_Model->setOrder($_POST);
 					
